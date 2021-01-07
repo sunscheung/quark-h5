@@ -20,12 +20,12 @@
     <div class="editor-main">
       <div class="control-bar-wrapper">
         <controlBar
-                :scale.sync="canvasConfig.scale"
-                @import-psd-data="importPsdData"
-                @showPreview="showPreviewFn"
-                @cancel="cancelFn"
-                @publish="publishFn"
-                @save="saveFn"/>
+					:scale.sync="canvasConfig.scale"
+					@import-psd-data="importPsdData"
+					@showPreview="showPreviewFn"
+					@cancel="cancelFn"
+					@publish="publishFn"
+					@save="saveFn"/>
       </div>
       <editorPan :scale.sync="canvasConfig.scale"/>
     </div>
@@ -51,12 +51,12 @@
     </div>
     <!--预览-->
     <previewPage
-            v-if="showPreview"
-            :pageData="projectData"
-            :pageId="id"
-            @closePreview="showPreview = false"
-            @publishFn="publishFn"
-            @saveFn="saveFn"></previewPage>
+			v-if="showPreview"
+			:pageData="projectData"
+			:pageId="id"
+			@closePreview="showPreview = false"
+			@publishFn="publishFn"
+			@saveFn="saveFn"></previewPage>
     <!--我的图片-->
     <imageLibs/>
   </div>

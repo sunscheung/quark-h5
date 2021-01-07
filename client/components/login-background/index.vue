@@ -35,6 +35,7 @@
 					this.moveY = moveY;
 			}
 			//生成max和min之间的随机数
+			// eslint-disable-next-line no-unused-vars
 			function num (max, _min) {
 				var min = arguments[1] || 0;
 				return Math.floor(Math.random()*(max-min+1)+min);
