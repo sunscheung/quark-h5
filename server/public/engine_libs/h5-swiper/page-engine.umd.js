@@ -20625,7 +20625,7 @@ module.exports = function (object, index, value) {
 /***/ "f355":
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"port\":\"4000\",\"adminAccount\":\"admin\",\"db\":{\"servername\":\"172.16.14.38\",\"DATABASE\":\"admin\",\"port\":27017,\"user\":\"\",\"pass\":\"\",\"authSource\":\"\"},\"baseURL\":\"\"}");
+module.exports = JSON.parse("{\"port\":\"4000\",\"adminAccount\":\"admin\",\"db\":{\"servername\":\"localhost\",\"DATABASE\":\"quark\",\"port\":27017,\"user\":\"\",\"pass\":\"\",\"authSource\":\"\"},\"baseURL\":\"\"}");
 
 /***/ }),
 
@@ -20758,9 +20758,6 @@ var es7_array_includes = __webpack_require__("6762");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.get-own-property-descriptors.js
 var es7_object_get_own_property_descriptors = __webpack_require__("8e6e");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
-var es6_array_iterator = __webpack_require__("cadf");
-
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.keys.js
 var es6_object_keys = __webpack_require__("456d");
 
@@ -20802,8 +20799,6 @@ function _typeof(obj) {
   return _typeof(obj);
 }
 // CONCATENATED MODULE: ./common/uitls.js
-
-
 
 
 
@@ -20880,8 +20875,6 @@ var lodash = __webpack_require__("2ef0");
 var config_0 = __webpack_require__("f355");
 
 // CONCATENATED MODULE: ./client/config/index.js
-
-
 
 
 
@@ -20968,8 +20961,6 @@ var configObj = _objectSpread(_objectSpread({
 
 /* harmony default export */ var client_config = (configObj);
 // CONCATENATED MODULE: ./client/pages/editor/DataModel.js
-
-
 
 
 
@@ -21200,6 +21191,9 @@ var components_templatevue_type_template_id_5af2bc05_staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./engine-template/engine-h5-swiper/src/components-template.vue?vue&type=template&id=5af2bc05&
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
+var es6_array_iterator = __webpack_require__("cadf");
 
 // EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
 var runtime = __webpack_require__("96cf");
@@ -22165,12 +22159,7 @@ components.forEach(function (item) {
   install: plugins_install // 所有组件，必须具有 install，才能使用 Vue.use()
 
 });
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
-var es6_promise = __webpack_require__("551c");
-
 // CONCATENATED MODULE: ./client/common/js/runAnimations.js
-
-
 
 
 /**
@@ -22252,6 +22241,9 @@ function _runAnimation() {
   }));
   return _runAnimation.apply(this, arguments);
 }
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
+var es6_promise = __webpack_require__("551c");
+
 // CONCATENATED MODULE: ./client/mixins/elementEvents.js
 
 

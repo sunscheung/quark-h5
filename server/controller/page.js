@@ -132,11 +132,12 @@ module.exports = app => ({
 		const pageData = await $service.page.getPageDetail(pageId);
 		let pageMode = {
 			'h5': 'h5-swiper',
-			'longPage': 'h5-long',
+			'longconsole.log()Page': 'h5-long',
 			'relativePage': 'h5-relative',
 			'pc': 'pc'
 		};
 		ctx.status = 200;
+		console.log(" ctx.render:::", pageData.pageMode);
 		await ctx.render(pageMode[pageData.pageMode], {pageData: pageData})
 	}
 })
