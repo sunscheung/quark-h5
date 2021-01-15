@@ -3,18 +3,17 @@
 */
 <template>
   <div
-          class="components-edit-shape"
-          @click="handleTopWrapperClick"
-          @mousedown="handleMouseDownOnElement"
-          :class="{active: this.active}"
+		class="components-edit-shape"
+		@click="handleTopWrapperClick"
+		@mousedown="handleMouseDownOnElement"
+		:class="{active: this.active}"
   >
     <div
-            class="edit-shape-point"
-            v-for="item in (active ? pointList : [])"
-            :key="item"
-            @mousedown="handleMouseDownOnPoint(item)"
-            :style="getPointStyle(item)"
-
+			class="edit-shape-point"
+			v-for="item in (active ? pointList : [])"
+			:key="item"
+			@mousedown="handleMouseDownOnPoint(item)"
+			:style="getPointStyle(item)"
     ></div>
     <slot></slot>
   </div>

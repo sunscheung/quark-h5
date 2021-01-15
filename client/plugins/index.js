@@ -1,3 +1,8 @@
+/*
+ * @Author: 张旭
+ * @Date: 2020-12-14 17:30:59
+ * @LastEditTime: 2021-01-14 16:32:58
+ */
 /**
  * 组件库入口
  * */
@@ -9,17 +14,19 @@ import RectangleBorder from './rectangle-border'
 import Iframe from './iframe'
 import Button from './button'
 import bgMusic from './bg-music'
+import video from "./video";
 
 // 所有组件列表
 const components = [
-	Text,
-	Image,
-	ImageCarousel,
-	RectangleBorder,
-	Iframe,
-	Button,
-	bgMusic
-]
+  Text,
+  Image,
+  ImageCarousel,
+  RectangleBorder,
+  Iframe,
+  Button,
+  bgMusic,
+  video
+];
 // 定义 install 方法，接收 Vue 作为参数
 const install = function (Vue) {
 	// 判断是否安装，安装过就不继续往下执行
@@ -48,6 +55,7 @@ export {
 	Iframe,
 	Button,
 	bgMusic,
+	video,
 	_qk_register_components_object
 }
 
