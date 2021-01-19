@@ -73,42 +73,42 @@ export default [
 					height: 210
 				}
 			},
-			{
-				elName: 'qk-iframe',
-				title: '内嵌iframe',
-				icon: 'iconfont iconiframetianjia',
-				valueType: '',
-				defaultStyle: {
-					width: $config.canvasH5Width,
-					height: 300,
-					paddingTop: 10,
-					paddingBottom: 10
-				}
-			},
-			{
-				elName: 'map',
-				title: '地图',
-				icon: 'iconfont iconditu',
-				valueType: '',
-				defaultStyle: {
-					width: 300,
-					height: 200,
-					paddingTop: 10,
-					paddingBottom: 10
-				}
-			},
-			{
-				elName: 'qk-video',
-				title: '视频',
-				icon: 'iconfont iconshipin',
-				valueType: '',
-				defaultStyle: {
-					width: $config.canvasH5Width,
-					height: 300,
-					paddingTop: 10,
-					paddingBottom: 10
-				}
-			},
+			// {
+			// 	elName: 'qk-iframe',
+			// 	title: '内嵌iframe',
+			// 	icon: 'iconfont iconiframetianjia',
+			// 	valueType: '',
+			// 	defaultStyle: {
+			// 		width: $config.canvasH5Width,
+			// 		height: 300,
+			// 		paddingTop: 10,
+			// 		paddingBottom: 10
+			// 	}
+			// },
+			// {
+			// 	elName: 'map',
+			// 	title: '地图',
+			// 	icon: 'iconfont iconditu',
+			// 	valueType: '',
+			// 	defaultStyle: {
+			// 		width: 300,
+			// 		height: 200,
+			// 		paddingTop: 10,
+			// 		paddingBottom: 10
+			// 	}
+			// },
+			// {
+			// 	elName: 'qk-video',
+			// 	title: '视频',
+			// 	icon: 'iconfont iconshipin',
+			// 	valueType: '',
+			// 	defaultStyle: {
+			// 		width: $config.canvasH5Width,
+			// 		height: 300,
+			// 		paddingTop: 10,
+			// 		paddingBottom: 10
+			// 	}
+			// },
 		]
 	},
 	{
@@ -119,31 +119,31 @@ export default [
 				title: '文本框',
 				icon: 'iconfont iconwenbenkuang'
 			},
-			{
-				elName: 'radio',
-				title: '单选框',
-				icon: 'iconfont iconplus-radio'
-			},
-			{
-				elName: 'checkbox',
-				title: '复选框',
-				icon: 'iconfont iconduoxuan'
-			},
-			{
-				elName: 'date',
-				title: '日期选择器',
-				icon: 'iconfont iconriqi'
-			},
-			{
-				elName: 'time',
-				title: '时间选择器',
-				icon: 'iconfont iconshijian'
-			},
-			{
-				elName: 'datetime',
-				title: '日期时间',
-				icon: 'iconfont iconriqishijian'
-			}
+			// {
+			// 	elName: 'radio',
+			// 	title: '单选框',
+			// 	icon: 'iconfont iconplus-radio'
+			// },
+			// {
+			// 	elName: 'checkbox',
+			// 	title: '复选框',
+			// 	icon: 'iconfont iconduoxuan'
+			// },
+			// {
+			// 	elName: 'date',
+			// 	title: '日期选择器',
+			// 	icon: 'iconfont iconriqi'
+			// },
+			// {
+			// 	elName: 'time',
+			// 	title: '时间选择器',
+			// 	icon: 'iconfont iconshijian'
+			// },
+			// {
+			// 	elName: 'datetime',
+			// 	title: '日期时间',
+			// 	icon: 'iconfont iconriqishijian'
+			// }
 		]
 	},
 	{

@@ -1,7 +1,7 @@
 /*
  * @Author: 张旭
  * @Date: 2020-12-14 17:30:59
- * @LastEditTime: 2021-01-14 16:32:58
+ * @LastEditTime: 2021-01-19 16:16:06
  */
 /**
  * 组件库入口
@@ -11,10 +11,10 @@ import Text from './text'
 import Image from './image'
 import ImageCarousel from './image-carousel'
 import RectangleBorder from './rectangle-border'
-import Iframe from './iframe'
+// import Iframe from './iframe'
 import Button from './button'
 import bgMusic from './bg-music'
-import video from "./video";
+// import video from "./video";
 
 // 所有组件列表
 const components = [
@@ -22,10 +22,10 @@ const components = [
   Image,
   ImageCarousel,
   RectangleBorder,
-  Iframe,
+  // Iframe,
   Button,
   bgMusic,
-  video
+  // video
 ];
 // 定义 install 方法，接收 Vue 作为参数
 const install = function (Vue) {
@@ -52,10 +52,10 @@ export {
 	Image,
 	ImageCarousel,
 	RectangleBorder,
-	Iframe,
+	// Iframe,
 	Button,
 	bgMusic,
-	video,
+	// video,
 	_qk_register_components_object
 }
 
