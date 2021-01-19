@@ -1,7 +1,7 @@
 /*
  * @Author: Suns
  * @Date: 2020-12-14 17:30:59
- * @LastEditTime: 2021-01-07 16:04:26
+ * @LastEditTime: 2021-01-19 10:31:35
  */
 /**
  *  路由权限相关管理
@@ -9,7 +9,7 @@
 import router from '@/router'
 import NProgress from 'nprogress' // 进度条
 import 'nprogress/nprogress.css' // 进度条样式
-// import userModel from '@/libs/userModel'
+import userModel from '@/libs/userModel'
 
 router.beforeEach(async (to, from, next) => {
 	NProgress.start()
@@ -19,11 +19,11 @@ router.beforeEach(async (to, from, next) => {
 		return;
 	}
 	// 用户登录状态拦截
-	// let loginStatus = await userModel.checkLoginState();
-	// if (!loginStatus) {
-	// 	userModel.goLogin();
-	// 	return false;
-	// }
+	let loginStatus = await userModel.checkLoginState();
+	if (!loginStatus) {
+		userModel.goLogin();
+		return false;
+	}
 
 	//TODO 黄维 根据加载的资源，更新路由meta属性中的title属性，所有的页面title使用route.meta.title
 	next()

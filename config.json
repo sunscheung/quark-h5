@@ -5,7 +5,7 @@
     "servername": "localhost",
     "DATABASE": "quark",
     "port": 27017,
-    "user": "admin",
+    "user": "zhangx592",
     "pass": "admin888",
     "authSource": ""
   },

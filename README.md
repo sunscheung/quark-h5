@@ -297,6 +297,7 @@ export default [
 ```js
 npm run dev-client
 ```
+npm run build-client
 
 ### 启动服务端
 
@@ -324,7 +325,7 @@ npm install pm2 -g
 ### 启动命令
 
 ```js
-npm run start
+npm run start // pm2 restart 0
 ```
 
 启动完访问http://localhost:4000 就可以看到工程页面了
