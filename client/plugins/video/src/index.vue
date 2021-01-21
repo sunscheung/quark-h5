@@ -1,11 +1,11 @@
 <!--
  * @Author: 张旭
  * @Date: 2021-01-14 16:06:59
- * @LastEditTime: 2021-01-14 16:42:44
+ * @LastEditTime: 2021-01-20 09:20:43
 -->
 <!--test.vue-->
 <template>
-  <div class="lbc-video" style={style}>
+  <div class="qk-video" style={style}>
     <div v-if="useIframe" ref="iframeWrapper"><img :src="playIcon" width="100%" height="100%" />
     </div>
       <video v-else playsinline="true" webkit-playsinline="" width="100%" height="100%" :poster="playIcon" ref="videoTag" controls>
@@ -85,7 +85,7 @@
 </script>
 
 <style lang="scss" scoped>
-.lbc-video {
+.qk-video {
   iframe {
     width: 100%;
     height: 100%;

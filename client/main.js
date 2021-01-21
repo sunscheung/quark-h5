@@ -1,3 +1,8 @@
+/*
+ * @Author: 张旭
+ * @Date: 2021-01-18 15:07:02
+ * @LastEditTime: 2021-01-21 16:13:27
+ */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -23,7 +28,7 @@ Vue.use(VueClipboard)
  * 引入公共方法mUtils
  */
 Vue.prototype.$mUtils = mUtils;
-Vue.prototype.AES = AES
+Vue.prototype.AES = AES;
 Vue.prototype.$axios = httpServer;
 Vue.prototype.$api = API;
 Vue.prototype.$API = API;

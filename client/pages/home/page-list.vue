@@ -1,21 +1,21 @@
 <template>
   <div class="clearfix my-page-list">
-    <div class="page-search-wrapper bg-white">
+    <!-- <div class="page-search-wrapper bg-white">
       <el-tabs v-model="searchParams.pageMode" @tab-click="handlePageModeClick">
         <el-tab-pane :name="item.value" :disabled="item.disabled" v-for="(item, index) in pageModeList" :key="index">
           <div slot="label"><span class="nav-tabs-label">{{item.label}}</span></div>
         </el-tab-pane>
       </el-tabs>
-    </div>
+    </div> -->
     <el-scrollbar class="scroll-wrapper page-list-wrapper">
       <div class="page-content">
         <div class="my-page-nav-list">
           <div class="my-page-nav-item" @click="doSearch('my')" :class="{active: searchParams.type === 'my'}">
-            我的作品({{myCount}})
+            素材模板列表({{myCount}})
           </div>
-          <div class="my-page-nav-item" @click="doSearch('cooperation')" :class="{active: searchParams.type === 'cooperation'}">
+          <!-- <div class="my-page-nav-item" @click="doSearch('cooperation')" :class="{active: searchParams.type === 'cooperation'}">
             参与作品({{shareCount}})
-          </div>
+          </div> -->
         </div>
         <!--页面列表-->
         <div class="page-item-wrapper" v-loading="loading">

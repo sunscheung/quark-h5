@@ -5,13 +5,8 @@
 从零开始实现一个H5编辑器项目完整设计思路和主要实现步骤，并开源前后端代码。
 有需要的小伙伴可以按照该教程从零实现自己的H5编辑器。（实现起来并不复杂，该教程只是提供思路，并非最佳实践）
 
-演示地址：[传送门](http://47.104.247.183:4000/)
-
 掘金文章：[Vue + Koa从零打造一个H5页面可视化编辑器——Quark-h5](https://juejin.im/post/6844903992426758152)
 
-**编辑器预览：**
-
-![预览](https://user-gold-cdn.xitu.io/2019/11/10/16e55daeaa08bd25?w=1733&h=816&f=gif&s=4898484)
 
 ## 技术栈
 
@@ -26,7 +21,7 @@
 **服务端：**
 `koa`：后端语言采用nodejs，koa文档和学习资料也比较多，express原班人马打造，这个正合适。
 `mongodb`：一个基于分布式文件存储的数据库，比较灵活。
-
+`pm2`：一个node进程管理工具。
 ## 阅读前准备
 
 1、了解vue技术栈开发
@@ -314,10 +309,92 @@ npm run dev-server
 npm run lib:h5-swiper
 ```
 
-## 本地部署
+## 部署
 
-需要全局安装pm2
+### 安装node并设置软连接
 
+### 全局安装pm2
+
+### 安装mongodb
+
+tar -zxvf mongodb-linux-x86_64-4.0.13.tgz
+mv mongodb-linux-x86_64-4.0.13/* /usr/local/mongodb
+> 创建文件夹
+mkdir data
+mkdir data/db
+mkdir data/log
+
+> 设置可读写权限
+sudo chmod 777 data/db
+sudo chmod 777 data/log
+
+> mongodb 配置mongodb.conf
+
+touch mongodb.conf
+
+```
+# 数据库数据存放目录
+dbpath=/usr/local/mongodb/data/db
+# 日志文件存放目录
+logpath=/usr/local/mongodb/data/log/mongodb.log
+# 日志追加方式
+logappend=true
+# 端口
+port=27017
+# 是否认证
+auth=true
+# 以守护进程方式在后台运行
+fork=true
+# 远程连接要指定ip，否则无法连接；0.0.0.0代表不限制ip访问
+bind_ip=0.0.0.0
+```
+
+> 配置环境变量
+
+sudo vi /etc/profile 命令打开系统文件，并在末尾加入以下内容后保存，最后使用 source /etc/profile 命令重启系统配置。
+```
+export MONGODB_HOME=/usr/local/mongodb
+export PATH=$PATH:$MONGODB_HOME/bin
+
+```
+> 启动Mongo服务
+```
+# -f 等同于--config
+mongod -f /usr/local/mongodb/mongodb.conf
+
+```
+
+- mongodb最好开机自启动
+
+### nginx配置
+
+=======================niginx配置===========================================
+/usr/local/nginx/conf/nginx.conf
+/usr/local/nginx/sbin
+sudo ./nginx -t
+sudo ./nginx -s reload
+
+cd /usr/local/nginx/conf
+
+```
+location /qk-h5/ {
+	alias  /home/quark/dist/;
+	index  index.html index.htm;
+}
+location /third-libs/ {
+  alias  /home/deployer/app/quark/server/public/third-libs/;
+}
+location /resource/ {
+  alias  /home/deployer/app/quark/server/public/resource/;
+}
+location /engine_libs/ {
+  alias  /home/deployer/app/quark/server/public/engine_libs/;
+} 
+location /quark {
+  proxy_read_timeout 150;
+  proxy_pass http://127.0.0.1:4000/quark;
+}
+```
 ```js
 npm install pm2 -g
 ```

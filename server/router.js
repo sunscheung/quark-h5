@@ -1,3 +1,8 @@
+/*
+ * @Author: 张旭
+ * @Date: 2020-12-14 17:30:59
+ * @LastEditTime: 2021-01-21 16:18:23
+ */
 
 module.exports = app => {
 	const { router, $controller, $middleware } = app;
@@ -41,8 +46,6 @@ module.exports = app => {
 	// 我的图片库
 	router.get('/quark/imageLib/myImages', $middleware.auth, $controller.image.getMyImages);
 	router.post('/quark/imageLib/upload', $middleware.auth, $controller.image.uploadImage);
-
-
-
+	router.post('/quark/imageCommon/upload', $middleware.auth, $controller.image.uploadImage);
 	return router
 };

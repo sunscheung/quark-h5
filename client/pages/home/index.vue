@@ -1,6 +1,11 @@
+<!--
+ * @Author: 张旭
+ * @Date: 2021-01-18 15:07:04
+ * @LastEditTime: 2021-01-21 16:29:13
+-->
 <template>
   <div class="page-home">
-    <div class="home-side-bar">
+    <!-- <div class="home-side-bar">
       <el-menu default-active="/page-list" router>
         <el-menu-item index="/home/page-list">
           <i class="el-icon-mobile"></i>
@@ -19,7 +24,7 @@
           <span slot="title">创意模板</span>
         </el-menu-item>
       </el-menu>
-    </div>
+    </div> -->
     <div class="clearfix my-page-list">
       <router-view class="sub-page"/>
     </div>
