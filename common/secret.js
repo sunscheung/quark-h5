@@ -1,8 +1,3 @@
-/*
- * @Author: Suns
- * @Date: 2020-12-14 17:30:59
- * @LastEditTime: 2020-12-15 09:27:58
- */
 const CryptoJS = require('crypto-js');  //引用AES源码js
 
 const keyStr = "icklsdufidsakdfa";  //十六位十六进制数作为密钥
@@ -35,7 +30,6 @@ function Decrypt(encrypted){
 }
 
 // 测试加、解密
-// eslint-disable-next-line no-unused-vars
 function testAES(){
 	var data = "1234567890123456"; // 明文
 

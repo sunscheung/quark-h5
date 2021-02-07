@@ -1,12 +1,12 @@
 <template>
   <div class="clearfix my-page-list">
-    <div class="page-search-wrapper bg-white">
-      <el-tabs v-model="searchParams.pageMode" @tab-click="handlePageModeClick">
-        <el-tab-pane :name="item.value" :disabled="item.disabled" v-for="(item, index) in pageModeList" :key="index">
-          <div slot="label"><span class="nav-tabs-label">{{item.label}}</span></div>
-        </el-tab-pane>
-      </el-tabs>
-    </div>
+<!--    <div class="page-search-wrapper bg-white">-->
+<!--      <el-tabs v-model="searchParams.pageMode" @tab-click="handlePageModeClick">-->
+<!--        <el-tab-pane :name="item.value" :disabled="item.disabled" v-for="(item, index) in pageModeList" :key="index">-->
+<!--          <div slot="label"><span class="nav-tabs-label">{{item.label}}</span></div>-->
+<!--        </el-tab-pane>-->
+<!--      </el-tabs>-->
+<!--    </div>-->
     <el-scrollbar class="scroll-wrapper page-list-wrapper">
       <div class="page-content">
         <div class="my-page-nav-list">

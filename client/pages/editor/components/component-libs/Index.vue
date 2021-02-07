@@ -2,11 +2,25 @@
   <div class="components-libs-wrapper scrollbar-wrapper">
     <p class="page-title text-center">组件库</p>
     <el-scrollbar style="height: 100%;">
-      <ul class="scrollbar-wrapper">
-        <li v-for="(item, index) in componentsList" :key="index" class="clearfix paddingB30">
-          <div class="components-libs-title">
-            <p>{{item.title}}</p>
-          </div>
+<!--      <ul class="scrollbar-wrapper">-->
+<!--        <li v-for="(item, index) in componentsList" :key="index" class="clearfix paddingB30">-->
+<!--          <div class="components-libs-title">-->
+<!--            <p>{{item.title}}</p>-->
+<!--          </div>-->
+<!--          <div v-if="item.components && item.components.length">-->
+<!--            <div class="components-lib-item" v-for="(element,i) in item.components" :key="i"-->
+<!--                 @click="handleClick(element)">-->
+<!--              <div class="lib-item-img"><i :class="[element.icon]"></i></div>-->
+<!--              <p class="lib-item-title">{{element.title}}</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div v-else>-->
+<!--            <p class="gray text-center paddingT20">待完善...</p>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--      </ul>-->
+      <el-collapse class="scrollbar-wrapper">
+        <el-collapse-item v-for="(item, index) in componentsList" :key="index" :title="item.title" class="clearfix components-libs-title el-collapse-item">
           <div v-if="item.components && item.components.length">
             <div class="components-lib-item" v-for="(element,i) in item.components" :key="i"
                  @click="handleClick(element)">
@@ -17,8 +31,8 @@
           <div v-else>
             <p class="gray text-center paddingT20">待完善...</p>
           </div>
-        </li>
-      </ul>
+        </el-collapse-item>
+      </el-collapse>
     </el-scrollbar>
   </div>
 </template>
@@ -28,7 +42,7 @@
 	import eleConfig from '../../ele-config'
 	import {_qk_register_components_object} from '@client/plugins/index'
   window._qk_register_components_object=_qk_register_components_object;
-  console.log(_qk_register_components_object);
+  //console.log(_qk_register_components_object)
 	export default {
 		name: "component-libs",
 		data() {
@@ -88,7 +102,8 @@
   }
 
   .components-libs-title {
-    margin-bottom: 16px;
+    //margin-bottom: 16px;
+    padding: 0 10px;
   }
 
   .components-lib-item {

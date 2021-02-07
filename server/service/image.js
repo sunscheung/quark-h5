@@ -22,5 +22,14 @@ module.exports = app => ({
 			author: userData._id,
 			url: url
 		});
+	},
+	/**
+	 * 彻底删除图片
+	 * @param id
+	 * @returns {Promise<boolean>}
+	 */
+	async deleteImage(id) {
+		const { $model } = app;
+		return await $model.image.remove({_id: id});
 	}
 })

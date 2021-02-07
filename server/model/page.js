@@ -5,12 +5,12 @@ module.exports = app => {
 	const schema = new Schema({
 		title:  { type: String, default: '未命名场景' },
 		coverImage: { type: String, default: '' },
-		description: { type: String, default: '我用夸克可视化编辑器做了一个超酷炫的H5，快来看看吧。' },
+		description: { type: String, default: '我用C317-DataUI可视化编辑器做了一个超酷炫的可视化页面，快来看看吧。' },
 		shareConfig: {
 			shareWx: false,
 			coverImage: { type: String, default: '' },
 			title:  { type: String, default: '这是#分享者#的大力推荐' },
-			description: { type: String, default: '这是#分享者#大力推荐的H5' },
+			description: { type: String, default: '这是#分享者#大力推荐的可视化编辑器' },
 		},
 		pages: Schema.Types.Mixed, //用于原始数据存储
 		script:  { type: String, default: '' }, // 第三方脚本插件
@@ -18,8 +18,8 @@ module.exports = app => {
 			type: String,
 			ref: "user"
 		},
-		width: {type: Number, default: 375 }, // 页面宽
-		height: {type: Number, default: 611 }, // 页面高度
+		width: {type: Number, default: 1366 }, // 页面宽
+		height: {type: Number, default: 768 }, // 页面高度
 		pageMode: {type: String, default: 'h5' }, // 渲染模式
 		flipType: {type: Number, default: 0 }, // 翻页模式
 		slideNumber: {type: Boolean, default: false }, // 翻页是否显示页码翻页指示

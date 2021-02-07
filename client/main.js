@@ -19,6 +19,12 @@ import VueClipboard from 'vue-clipboard2'
 Vue.use(Element);
 Vue.use(VueClipboard)
 
+// 将自动注册所有组件为全局组件
+import dataV from '@jiaminghi/data-view'
+import VCharts from 'v-charts'
+Vue.use(dataV)
+Vue.use(VCharts)
+
 /**
  * 引入公共方法mUtils
  */

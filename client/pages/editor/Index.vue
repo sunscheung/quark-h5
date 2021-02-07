@@ -20,12 +20,12 @@
     <div class="editor-main">
       <div class="control-bar-wrapper">
         <controlBar
-					:scale.sync="canvasConfig.scale"
-					@import-psd-data="importPsdData"
-					@showPreview="showPreviewFn"
-					@cancel="cancelFn"
-					@publish="publishFn"
-					@save="saveFn"/>
+                :scale.sync="canvasConfig.scale"
+                @import-psd-data="importPsdData"
+                @showPreview="showPreviewFn"
+                @cancel="cancelFn"
+                @publish="publishFn"
+                @save="saveFn"/>
       </div>
       <editorPan :scale.sync="canvasConfig.scale"/>
     </div>
@@ -51,12 +51,12 @@
     </div>
     <!--预览-->
     <previewPage
-			v-if="showPreview"
-			:pageData="projectData"
-			:pageId="id"
-			@closePreview="showPreview = false"
-			@publishFn="publishFn"
-			@saveFn="saveFn"></previewPage>
+            v-if="showPreview"
+            :pageData="projectData"
+            :pageId="id"
+            @closePreview="showPreview = false"
+            @publishFn="publishFn"
+            @saveFn="saveFn"></previewPage>
     <!--我的图片-->
     <imageLibs/>
   </div>
@@ -157,7 +157,7 @@
 			 * 保存
 			 */
 			async saveFn() {
-				// await this.screenshots()
+				await this.screenshots() // 提供截屏作为项目主图
 				// 提交数据再预览
 				this.$API.updatePage({pageData: this.projectData}).then(() => {
 					this.$message.success('保存成功!')
@@ -178,7 +178,7 @@
 				})
 			},
 			async showPreviewFn() {
-				// await this.screenshots()
+				await this.screenshots() // 提供截屏作为项目主图
 				// 提交数据再预览
 				this.$API.updatePage({pageData: this.projectData}).then(() => {
 					this.showPreview = true
@@ -208,9 +208,11 @@
 						const file = new window.File([blob], +new Date() + '.png', {type: 'image/png'})
 						let params = new FormData()
 						params.append('file', file);
-						this.$axios.post('/common/uploadFile', params).then(res => {
+            this.$API.uploadCommonImage(params).then(res => {
 							// 替换主图链接
-							this.projectData.coverImage = res.body;
+							this.projectData.coverImage = res.body.url;
+              // 替换附图链接
+              this.projectData.shareConfig.coverImage = res.body.url;
 							resolve(res.body)
 						}).catch(err => {
 							reject(err)
@@ -266,6 +268,7 @@
       flex: 1;
       background: #f0f2f5;
       position: relative;
+      width: 0;
     }
     .el-attr-edit-wrapper {
       width: 380px;

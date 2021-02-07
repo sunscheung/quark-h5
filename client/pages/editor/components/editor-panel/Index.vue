@@ -1,5 +1,5 @@
 <template>
-  <div class="editor-pane" @click="handleClickCanvas" @keyup.esc="handleKeyup" ref="editorPane">
+  <div class="editor-pane" @click="handleClickCanvas" @keyup.delete="handleKeyup" ref="editorPane">
     <div class="editor-pane-inner">
       <div class="editor-main" :style="{transform: 'scale('+scale+')', width: projectData.width + 'px', height: projectData.height + 'px'}">
         <div class="page-preview-wrapper" ref="canvas-panel" id="canvas-panel" :style="getCommonStyle(activePage.commonStyle)">
@@ -21,10 +21,10 @@
 
       <div
               class="page-wrapper-menu-operation menu-item-on-edit-panel"
-              :style="getMenuOptionsPositionStyle"
               :class="{active: activeElementUUID}">
+        <!--:style="getMenuOptionsPositionStyle"-->
         <el-tooltip v-for="(item, index) in menuOptions" :key="index" effect="dark" :content="item.title"
-                    placement="right">
+                    placement="top">
           <div class="menu-item menu-item-on-edit-panel" @click="handleElementCommand(item.value)">
             <i class="menu-item-on-edit-panel" :class="[item.icon]"></i>
           </div>
@@ -62,7 +62,7 @@
 				getCommonStyle: editorProjectConfig.getCommonStyle,
 				menuOptions: [{
 					title: '复制',
-					icon: 'iconfont iconfuzhi',
+					icon: 'iconfont icon-fuzhi',
 					value: 'copy'
 				}, {
 					title: '删除',
@@ -163,7 +163,7 @@
 			 * @param e
 			 */
 			handleKeyup(e) {
-				console.log(1111, e);
+				console.log('键盘被点了', e);
 			},
 			/**
 			 * 提供截屏作为项目主图
@@ -237,8 +237,8 @@
 
   .page-wrapper-menu-operation {
     position: absolute;
-    right: 0;
-    top: 45px;
+    right: calc(50% - 162px);
+    top: 2px;
     width: 0;
     background: white;
     color: #333;
@@ -251,6 +251,7 @@
     .menu-item {
       padding: 10px;
       cursor: pointer;
+      float: left;
       &.i {
         font-size: 24px;
         line-height: 30px;
@@ -266,7 +267,7 @@
     }
     &.active {
       display: block;
-      width: 60px;
+      width: 325px;
       opacity: 1;
     }
   }

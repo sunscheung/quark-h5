@@ -32,6 +32,7 @@ module.exports = app => ({
 	async create(){
 		const { ctx, $service, $helper } = app;
 		let newPageData = ctx.request.body;
+		newPageData.description='我用C317-DataUI可视化编辑器做了一个超酷炫的可视化页面，快来看看吧。';
 		const page = await $service.page.create(newPageData);
 		$helper.returnBody(true, page)
 	},
@@ -71,6 +72,9 @@ module.exports = app => ({
 		page.isTemplate = false;
 		page.members = [];
 		let newPage = await $service.page.create(page);
+		newPage.pages=page.pages;
+		//将复制页面的数据更新的最新页面里面
+		await $service.page.update(newPage);
 		$helper.returnBody(true, {_id: newPage._id});
 	},
 
@@ -132,12 +136,11 @@ module.exports = app => ({
 		const pageData = await $service.page.getPageDetail(pageId);
 		let pageMode = {
 			'h5': 'h5-swiper',
-			'longconsole.log()Page': 'h5-long',
+			'longPage': 'h5-long',
 			'relativePage': 'h5-relative',
 			'pc': 'pc'
 		};
 		ctx.status = 200;
-		console.log(" ctx.render:::", pageData.pageMode);
 		await ctx.render(pageMode[pageData.pageMode], {pageData: pageData})
 	}
 })

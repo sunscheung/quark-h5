@@ -1,8 +1,3 @@
-/*
- * @Author: Suns
- * @Date: 2020-12-14 17:30:59
- * @LastEditTime: 2021-01-08 09:17:40
- */
 const path = require('path')
 const fs = require('fs')
 
@@ -20,7 +15,6 @@ let devServer = {
 
 module.exports = {
 	devServer: devServer,
-  // publicPath: './',
 	// 输出文件目录
 	assetsDir: "static",
 	// 修改 pages 入口

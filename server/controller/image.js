@@ -26,5 +26,15 @@ module.exports = app => ({
 		let fileResult = await $service.file.upload(file, 'image_lib/' + userData.username + '/' + timestamps);
 		const imageData = await $service.image.addImage(fileResult.url);
 		$helper.returnBody(true, imageData)
+	},
+	/**
+	 * 删除我的图片
+	 */
+	async deleteImage() {
+		const { ctx, $service, $helper } = app;
+		let {data} = ctx.request.body;
+		await $service.file.delete(data.url);
+		await $service.image.deleteImage(data._id);
+		$helper.returnBody(true)
 	}
 })

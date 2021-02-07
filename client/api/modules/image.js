@@ -7,4 +7,5 @@ import $axios from "@/service/httpServer";
 export const getMyImages = p => $axios.get('/quark/imageLib/myImages', p);
 // 上传图片
 export const uploadImage = p => $axios.post('/quark/imageLib/upload', p)
-export const uploadCommonImage = p => $axios.post('/quark/imageCommon/upload', p)
+export const uploadCommonImage = p => $axios.post('/quark/imageLib/upload', p)
+export const deleteImage = p => $axios.post('/quark/imageLib/delete', p)

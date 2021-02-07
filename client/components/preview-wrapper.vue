@@ -59,7 +59,7 @@
     left: 0;
     right: 640px;
     z-index: 1050;
-    overflow: hidden;
+    overflow: scroll;
   }
   .right-panel{
     position: fixed;
@@ -74,11 +74,12 @@
   }
   .iframe-wrapper{
     position: absolute;
-    left: 50%;
+    /*left: 50%;
     top: 50%;
     margin-left: -185px;
     margin-top: -334px;
-    background: white;
+    background: white;*/
+    padding: 20px;
   }
   .cloase-btn{
     position: fixed;

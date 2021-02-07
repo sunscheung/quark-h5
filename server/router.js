@@ -41,7 +41,7 @@ module.exports = app => {
 	// 我的图片库
 	router.get('/quark/imageLib/myImages', $middleware.auth, $controller.image.getMyImages);
 	router.post('/quark/imageLib/upload', $middleware.auth, $controller.image.uploadImage);
-
+	router.post('/quark/imageLib/delete', $middleware.auth, $controller.image.deleteImage);
 
 
 	return router

@@ -315,6 +315,7 @@
   .thumbnail-panel-cover {
     flex: 1;
     position: relative;
+    height: calc(100% - 72px);
     .image-wrapper {
       width: 100%;
       height: 100%;

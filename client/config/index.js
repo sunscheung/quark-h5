@@ -21,8 +21,8 @@ const configObj = {
 	isDevelop: (isDev || isTest),
 	...configDict[currentConfigKey],
 	// h5模式宽高
-	canvasH5Width: 375,
-	canvasH5Height: 644,
+	canvasH5Width: 1366,
+	canvasH5Height: 768,
 	pageModeList: [{
 		value: 'h5',
 		label: 'H5',
@@ -39,6 +39,15 @@ const configObj = {
 		value: 'pc',
 		label: 'PC页面',
 		disabled: true
+	}],
+	dataModeList: [{
+		value: 'image',
+		label: '我的图片',
+		disabled: false
+	}, {
+		value: 'data',
+		label: '数据',
+		disabled: false
 	}]
 }
 
