@@ -24,10 +24,10 @@
           </div>
           <div class="page-item" v-for="(item, index) in pageList" :key="index">
             <thumbnailPanel
-                    @refresh="getPageList"
-                    @showPreview="showPreviewFn"
-                    :pageData="item"
-                    :btnList="operationBtn(item.isPublish)"/>
+              @refresh="getPageList"
+              @showPreview="showPreviewFn"
+              :pageData="item"
+              :btnList="operationBtn(item.isPublish)"/>
           </div>
         </div>
       </div>

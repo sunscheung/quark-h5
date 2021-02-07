@@ -14,12 +14,12 @@
           <div class="page-item-wrapper">
             <div class="page-item" v-for="(item, index) in pageList" :key="index">
               <thumbnailPanel
-                      @refresh="getPageList"
-                      @showPreview="showPreviewFn"
-                      :pageData="item"
-                      :btnList="['useTemplate']"
-                      :showMoreBtn="false"
-                      :showPublishState="false" />
+                @refresh="getPageList"
+                @showPreview="showPreviewFn"
+                :pageData="item"
+                :btnList="['useTemplate']"
+                :showMoreBtn="false"
+                :showPublishState="false" />
             </div>
           </div>
         </div>

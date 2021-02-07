@@ -1,0 +1,14 @@
+{
+  "apps": [{
+    "name": "qkh5",
+    "script": "server/app.js",
+    "instances": 2,
+    "exec_mode": "cluster",
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "env_production" : {
+      "NODE_ENV": "production"
+    }
+  }]
+}

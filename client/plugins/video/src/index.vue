@@ -1,7 +1,7 @@
 <!--
  * @Author: 张旭
  * @Date: 2021-01-14 16:06:59
- * @LastEditTime: 2021-01-20 09:20:43
+ * @LastEditTime: 2021-02-03 17:18:27
 -->
 <!--test.vue-->
 <template>
@@ -21,7 +21,7 @@
 		props: {
 			src: {
         type: String,
-        default: `http://localhost:1337/uploads/419a4b0c60f9488c9d44c398dc987471.mp4`,
+        default: `http://vali-g1.cp31.ott.cibntv.net/youku/6974b3209cb4b71f9b75e5575/03000801005FFEF8B29121C28EBD90CF83767B-57E7-4325-9471-52590A4DF8ED.mp4?sid=161234382000010009297_00_B8cd75d0aa59fe8c2cdefaa50317ecf34&sign=7fed9358780c878809985163e9fa2629&ctype=50&si=183&psid=bebeb3480475b6a5a788feadd2b0f86247dbb`,
         editor: {
           type: 'lbs-video-gallery',
           label: '视频2',

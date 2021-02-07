@@ -1,7 +1,7 @@
 /*
  * @Author: Suns
  * @Date: 2020-12-14 17:30:59
- * @LastEditTime: 2021-01-19 10:31:35
+ * @LastEditTime: 2021-02-07 11:10:08
  */
 /**
  *  路由权限相关管理
@@ -25,7 +25,7 @@ router.beforeEach(async (to, from, next) => {
 		return false;
 	}
 
-	//TODO 黄维 根据加载的资源，更新路由meta属性中的title属性，所有的页面title使用route.meta.title
+	// 根据加载的资源，更新路由meta属性中的title属性，所有的页面title使用route.meta.title
 	next()
 })
 

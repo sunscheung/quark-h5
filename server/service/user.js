@@ -6,12 +6,13 @@ module.exports = app => ({
 	 * @param options
 	 * @returns {Promise<void>}
 	 */
-	async createUser(username, password, email, name) {
+	// async createUser(username, password, email, name) {
+	async createUser(username, password, name) {
 		const {$model} = app;
 		await $model.user.create({
 			username: username,
 			password: password,
-			email: email,
+			// email: email,
 			name: name || username,
 		});
 		const query = {username: {$in: username}};
@@ -94,7 +95,7 @@ module.exports = app => ({
 				$or : [ //多条件，数组
 					{name : {$regex : keywords}},
 					{username : {$regex : keywords}},
-					{email : {$regex : keywords}}
+					// {email : {$regex : keywords}}
 				]
 			},
 			{

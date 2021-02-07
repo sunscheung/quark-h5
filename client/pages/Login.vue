@@ -1,7 +1,7 @@
 <template>
   <div class="page page-login">
-    <div class="login-page-inner">
-      <p class="title">Quark H5</p>
+    <!-- <div class="login-page-inner">
+      <p class="title">在线 H5</p>
       <el-form :model="formData" :rules="formRules" ref="loginForm" label-width="0px">
         <el-form-item prop="username">
           <el-input v-model="formData.username" name="userName" placeholder="请输入用户名" @keyup.enter.native="doLogin">
@@ -39,17 +39,17 @@
           <span>{{type === 'login' ? '立即注册' : '马上登录'}}</span>
         </p>
       </div>
-      <p class="login-page-bottom">Copyright © 2020 <span class="primary">Quark H5版权所有</span></p>
+      <p class="login-page-bottom">Copyright © 2021</p>
     </div>
     <div class="login-background">
       <loginBackground />
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 	import userModel from '@/libs/userModel'
-  import loginBackground from '@/components/login-background/index'
+  // import loginBackground from '@/components/login-background/index'
 	import {
 		Form,
 		FormItem,
@@ -61,7 +61,7 @@
 			[Form.name]: Form,
 			[FormItem.name]: FormItem,
 			[Input.name]: Input,
-			loginBackground
+			// loginBackground
 		},
 		data() {
 			return {
@@ -70,9 +70,9 @@
 				inputType: 'password',
 				type: 'login',
 				formData: {
-					email: '',
+					// email: '',
 					username: '',
-					password: ''
+					password: 'admin888'
 				},
 				formRules: {
 					username: [
@@ -86,8 +86,11 @@
 		},
 		created() {
 			// 进入登录页面先清空个人信息
-			this.fromUrl = this.$route.query.from ? window.decodeURIComponent(this.$route.query.from) : ''
-		},
+      this.fromUrl = this.$route.query.from ? window.decodeURIComponent(this.$route.query.from) : ''
+      this.formData.username = this.$route.params.username;
+      this.formData.password = "admin888";
+      this.doLogin();
+    },
 		methods: {
 			/**
 			 登陆

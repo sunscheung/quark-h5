@@ -32,6 +32,7 @@ module.exports = app => ({
 	async create(){
 		const { ctx, $service, $helper } = app;
 		let newPageData = ctx.request.body;
+		console.log("newPageData::", newPageData);
 		const page = await $service.page.create(newPageData);
 		$helper.returnBody(true, page)
 	},
@@ -71,6 +72,11 @@ module.exports = app => ({
 		page.isTemplate = false;
 		page.members = [];
 		let newPage = await $service.page.create(page);
+		// let lastPage = Object.assign(page, { _id: newPage._id });
+		// await $service.page.update(lastPage);
+		newPage.pages=page.pages;
+		//将复制页面的数据更新的最新页面里面
+		await $service.page.update(newPage);
 		$helper.returnBody(true, {_id: newPage._id});
 	},
 

@@ -9,12 +9,12 @@
           <div class="quark-page-wrapper"
                :style="getCommonStyle({...page.commonStyle, top: pageTop, height: pageData.height, width: pageData.width, position: 'relative'}, scalingRatio)">
             <componentsTemplate
-                    v-for="(item, index) in page.elements"
-                    :key="index"
-                    :loaded="item._loaded"
-                    @handleElementClick="handleElementClick"
-                    :element="item"
-                    :style="getCommonStyle(item.commonStyle, scalingRatio)">
+							v-for="(item, index) in page.elements"
+							:key="index"
+							:loaded="item._loaded"
+							@handleElementClick="handleElementClick"
+							:element="item"
+							:style="getCommonStyle(item.commonStyle, scalingRatio)">
             </componentsTemplate>
           </div>
         </div>

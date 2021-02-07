@@ -114,12 +114,13 @@
 						label: '页面管理',
 						value: 'pageManage',
 						elementUiIcon: 'el-icon-document'
-					},
-					{
-						label: '模板库',
-						value: 'templateLibs',
-						elementUiIcon: 'el-icon-files'
 					}
+					// ,
+					// {
+					// 	label: '模板库',
+					// 	value: 'templateLibs',
+					// 	elementUiIcon: 'el-icon-files'
+					// }
 				],
 				canvasConfig: {
 					scale: 1

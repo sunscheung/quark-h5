@@ -5,26 +5,24 @@
         <div class="page-preview-wrapper" ref="canvas-panel" id="canvas-panel" :style="getCommonStyle(activePage.commonStyle)">
           <!--页面组件列表展示-->
           <edit-shape
-                  v-for="item in activePage.elements"
-                  :key="item.uuid"
-                  :uuid="item.uuid"
-                  :defaultStyle="item.commonStyle"
-                  :style="getCommonStyle({width: item.commonStyle.width, height: item.commonStyle.height, left: item.commonStyle.left,top: item.commonStyle.top,position: item.commonStyle.position})"
-                  @handleElementClick="handleElementClick(item.uuid)"
-                  @resize="handleElementResize"
-                  :active="item.uuid === activeElementUUID">
+						v-for="item in activePage.elements"
+						:key="item.uuid"
+						:uuid="item.uuid"
+						:defaultStyle="item.commonStyle"
+						:style="getCommonStyle({width: item.commonStyle.width, height: item.commonStyle.height, left: item.commonStyle.left,top: item.commonStyle.top,position: item.commonStyle.position})"
+						@handleElementClick="handleElementClick(item.uuid)"
+						@resize="handleElementResize"
+						:active="item.uuid === activeElementUUID">
             <component :style="getCommonStyle({...item.commonStyle, top: 0, left: 0})" :is="item.elName" class="element-on-edit-pane" v-bind="item.propsValue"/>
           </edit-shape>
         </div>
         <div class="page-wrapper-mask"></div>
       </div>
-
       <div
-              class="page-wrapper-menu-operation menu-item-on-edit-panel"
-              :style="getMenuOptionsPositionStyle"
-              :class="{active: activeElementUUID}">
-        <el-tooltip v-for="(item, index) in menuOptions" :key="index" effect="dark" :content="item.title"
-                    placement="right">
+				class="page-wrapper-menu-operation menu-item-on-edit-panel"
+				:style="getMenuOptionsPositionStyle"
+				:class="{active: activeElementUUID}">
+        <el-tooltip v-for="(item, index) in menuOptions" :key="index" effect="dark" :content="item.title" placement="right">
           <div class="menu-item menu-item-on-edit-panel" @click="handleElementCommand(item.value)">
             <i class="menu-item-on-edit-panel" :class="[item.icon]"></i>
           </div>

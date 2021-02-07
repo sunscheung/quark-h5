@@ -1,3 +1,8 @@
+/*
+ * @Author: 张旭
+ * @Date: 2021-01-19 17:28:25
+ * @LastEditTime: 2021-02-04 15:02:44
+ */
 const  fs = require('fs')
 const path = require('path')
 
@@ -13,6 +18,7 @@ module.exports = app => ({
 		// 读取文件
 		let fileData = fs.readFileSync(file.path)
 		// 将文件存到指定位置
+		console.log("folderName::", folderName);
 		let folderPath = path.join(path.join(__dirname, '../public/resource/'), folderName) // 拼接文件夹
 		// 判断文件夹是否存在不存在则新建一个
 		await $helper.dirExists(folderPath);

@@ -1,12 +1,12 @@
 {
-  "port": "4000",
+  "port": "40877",
   "adminAccount": "admin",
   "db": {
     "servername": "localhost",
     "DATABASE": "quark",
     "port": 27017,
-    "user": "zhangx592",
-    "pass": "admin888",
+    "user": "",
+    "pass": "",
     "authSource": ""
   },
   "baseURL": ""

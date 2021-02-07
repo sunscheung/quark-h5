@@ -1,7 +1,7 @@
 /*
  * @Author: Suns
  * @Date: 2020-12-14 17:30:59
- * @LastEditTime: 2021-01-15 15:56:55
+ * @LastEditTime: 2021-02-02 09:39:43
  */
 const path = require('path')
 const fs = require('fs')
@@ -10,7 +10,7 @@ const fs = require('fs')
 let devServer = {
 	proxy: { // 代理
 		'/': {
-			target: 'http://localhost:4000',//设置你调用的接口域名和端口号 别忘了加http
+			target: 'http://localhost:40877',//设置你调用的接口域名和端口号 别忘了加http
 			ws: false,
 			changeOrigin: true,               // needed for virtual hosted sites
 			pathRewrite: {},
@@ -19,7 +19,8 @@ let devServer = {
 }
 
 module.exports = {
-  publicPath: "/qk-h5",
+  // publicPath: "/qk-h5",
+  publicPath: "./",
   devServer: devServer,
   // 输出文件目录
   assetsDir: "static",

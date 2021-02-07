@@ -1,3 +1,8 @@
+/*
+ * @Author: 张旭
+ * @Date: 2021-01-19 17:28:25
+ * @LastEditTime: 2021-02-07 13:48:57
+ */
 /**
  * 生成uuid方法
  * @returns {string}
@@ -49,4 +54,18 @@ export const deepClone = function  (obj, cache = []) {
 	})
 
 	return copy
+}
+
+/**
+ * @desc 获取url参数
+ * @param {String} _url // url = "http://127.0.0.1/e/action?id=2021&username=zhangx";
+ * @out {Object} {id:2021, username:zhangx}
+ */
+export const parseUrl = function(_url) {
+	var pattern = /(\w+)=(\w+)/gi;
+	var parames = {};
+	_url.replace(pattern, function(a, b, c) {
+		parames[b] = c;
+	});
+	return parames;
 }

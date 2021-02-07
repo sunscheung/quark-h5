@@ -77,7 +77,7 @@
 		},
 		created() {
 			this.scaleValue = this.scale;
-		},
+    },
 		methods: {
 			...mapActions([
 				'editorUndo',

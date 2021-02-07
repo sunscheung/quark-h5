@@ -22,7 +22,8 @@ module.exports = app => ({
 		const {ctx, $model} = app;
 		let userData = ctx.userData
 		let query = {author: userData._id, pageMode: pageMode, is_delete: {$ne: true}, isTemplate: {$ne: true}};
-		return await $model.page.count(query);
+		// return await $model.page.count(query);
+		return await $model.page.countDocuments(query);
 	},
 	/**
 	 * 获取我的协作页面数量
@@ -32,7 +33,8 @@ module.exports = app => ({
 		const {ctx, $model} = app;
 		let userData = ctx.userData
 		let query = {members: {$elemMatch: {$in: userData._id}}, pageMode: pageMode, is_delete: {$ne: true}, isTemplate: {$ne: true}};
-		return await $model.page.count(query);
+		// return await $model.page.count(query);
+		return await $model.page.countDocuments(query);
 	},
 	/**
 	 * 获取我的模板列表
@@ -54,11 +56,12 @@ module.exports = app => ({
 	 */
 	async create(pageData){
 		const {ctx, $model} = app;
-		let userData = ctx.userData
+		let userData = ctx.userData;
+		// pageData.markModified('pages');
 		return await $model.page.create({
-			...pageData,
-			author: userData._id,
-		})
+      ...pageData,
+      author: userData._id,
+    });
 	},
 	/**
 	 * 更新修改页面

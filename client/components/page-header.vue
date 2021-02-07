@@ -1,8 +1,14 @@
+<!--
+ * @Author: 张旭
+ * @Date: 2021-01-19 17:28:25
+ * @LastEditTime: 2021-02-04 15:18:39
+-->
 <template>
   <div class="components-page-header">
     <div class="page-header-inner" :class="{'layout-container': !fullWidth, fullWidth: fullWidth}">
       <div class="inline-block logo-wrapper">
-        <img class="cursor-pointer" @click="goHome" src="../common/images/logo.jpg" alt="">
+        <img class="cursor-pointer" @click="goHome" src="../common/images/logo.jpg" alt="logo">
+        在线H5
         <slot name="left-slot"></slot>
       </div>
       <div class="header-center-wrapper">

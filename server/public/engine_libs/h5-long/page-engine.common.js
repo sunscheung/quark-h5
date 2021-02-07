@@ -1699,7 +1699,7 @@ module.exports = Object.getPrototypeOf || function (O) {
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  */
-;(function() {
+(function() {
 
   /** Used as a safe reference for `undefined` in pre-ES5 environments. */
   var undefined;
@@ -23199,7 +23199,7 @@ function _objectSpread(target) {
 
 var configDict = {
   development: {
-    baseURL: 'http://localhost:4000'
+    baseURL: 'http://localhost:40877'
   },
   production: {
     baseURL: config_0.baseURL
@@ -23329,7 +23329,7 @@ var pageConfig = {
 var projectConfig = {
   name: '',
   title: '未命名场景',
-  description: '我用夸克可视化编辑器做了一个超酷炫的H5，快来看看吧。',
+  description: '我用可视化编辑器做了一个超酷炫的H5，快来看看吧。',
   coverImage: '',
   auther: '',
   script: '',

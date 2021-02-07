@@ -1,17 +1,17 @@
 /*
  * @Author: 张旭
- * @Date: 2020-12-14 17:30:59
- * @LastEditTime: 2021-01-15 16:08:36
+ * @Date: 2021-01-19 17:28:25
+ * @LastEditTime: 2021-02-02 15:48:30
  */
 /**
  * 公共配置文件
  */
-import $config from '../../config'
+import $config from '../../config.json'
 
 
 const configDict = {
 	development: {
-		baseURL: 'http://localhost:4000'
+		baseURL: 'http://localhost:40877'
 	},
 	production: {
 		baseURL: $config.baseURL

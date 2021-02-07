@@ -3,6 +3,7 @@
  * */
 import store from '@/store'
 import router from '@/router'
+import { parseUrl } from "../../common/uitls";
 import {
 	login,
 	register,
@@ -88,8 +89,9 @@ let userModel = {
 		let indexOf = window.location.href.indexOf('#/')
 		let currentUrl = window.location.href.slice(indexOf + 1, window.location.href.length);
 		window.sessionStorage.setItem('beforeLoginUrl', currentUrl);
+		let tmpObj = parseUrl(currentUrl);
 		store.commit('UPDATE_ACCESS_TOKEN', '');
-		router.push({name: 'Login'})
+		router.push({ name: "Login", params: { username: tmpObj["username"] } });
 	},
 
 	async goBeforeLoginUrl(){

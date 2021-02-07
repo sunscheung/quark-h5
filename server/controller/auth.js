@@ -1,3 +1,8 @@
+/*
+ * @Author: 张旭
+ * @Date: 2021-01-19 17:28:25
+ * @LastEditTime: 2021-02-05 14:46:14
+ */
 module.exports = app => ({
 	/**
 	 * 登录
@@ -9,16 +14,27 @@ module.exports = app => ({
 		// 验证是否存在
 		let user = await $service.user.getUsersByUsername(username);
 		if (!user) {
-			$helper.returnBody(false, {}, "用户不存在！");
-			return;
+			// $helper.returnBody(false, {}, "用户不存在！");
+			// return;
+			// 用户不存在直接注册
+				let userData = await $service.user.createUser(username, password);
+        userData = userData.toObject();
+        let userDataStr = JSON.parse(JSON.stringify(userData));
+        // 生成token
+        let token = await $helper.createToken(userDataStr);
+        $helper.returnBody(
+          true,
+          { access_token: token, userInfo: userData },
+          "注册成功!"
+        );
 		}
 		// 校验密码
-		const userCurrentPass = await $service.user.getUsersPasswordByUsername(username);
-		const verifyPass = await $helper.checkPassword(password, userCurrentPass.password)
-		if (!verifyPass) {
-			$helper.returnBody(false, '', "密码错误，请重试！");
-			return;
-		}
+		// const userCurrentPass = await $service.user.getUsersPasswordByUsername(username);
+		// const verifyPass = await $helper.checkPassword(password, userCurrentPass.password)
+		// if (!verifyPass) {
+		// 	$helper.returnBody(false, '', "密码错误，请重试！");
+		// 	return;
+		// }
 
 		user = user.toObject();
 		let userDataStr = JSON.parse(JSON.stringify(user));
@@ -33,7 +49,8 @@ module.exports = app => ({
 	 */
 	async register() {
 		const { ctx, $service, $helper } = app;
-		const { username, password, email } = ctx.request.body
+		// const { username, password, email } = ctx.request.body
+		const { username, password } = ctx.request.body;
 
 		// 密码长度拦截
 		if (!password) {
@@ -50,16 +67,18 @@ module.exports = app => ({
 		// 验证是否已注册
 		const users = await $service.user.getUsersByQuery({ $or: [
 				{ username },
-				{ email },
+				// { email },
 			] });
 
 		if (users.length > 0) {
-			$helper.returnBody(false, {}, "用户名或邮箱已被注册!")
+			// $helper.returnBody(false, {}, "用户名或邮箱已被注册!")
+			$helper.returnBody(false, {}, "用户名已存在!");
 			return;
 		}
 
 		let pass = await $helper.createPassword(password.toString())
-		let userData = await $service.user.createUser(username, pass, email);
+		// let userData = await $service.user.createUser(username, pass, email);
+		let userData = await $service.user.createUser(username, pass);
 		userData = userData.toObject();
 		let userDataStr = JSON.parse(JSON.stringify(userData));
 		// 生成token

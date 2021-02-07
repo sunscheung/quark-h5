@@ -1,6 +1,6 @@
 <template>
   <div class="page-thumbnail-panel" v-loading="loading" v-if="pageData">
-    <span class="unpublish" v-if="!pageData.isPublish && showPublishState">未发布</span>
+    <!-- <span class="unpublish" v-if="!pageData.isPublish && showPublishState">未发布</span> -->
     <div class="thumbnail-panel-cover">
       <div class="header-mask">
         <div class="details-btn" @click="preview(pageData._id)">预览</div>
@@ -16,12 +16,12 @@
       <div class="btn-wrapper" v-if="btnList.includes('edit')">
         <el-button type="text" size="mini" @click="edit">编辑</el-button>
       </div>
-      <div class="btn-wrapper" v-if="btnList.includes('useTemplate')">
+      <!-- <div class="btn-wrapper" v-if="btnList.includes('useTemplate')">
         <el-button type="text" size="mini" @click="copyPage">使用模板</el-button>
       </div>
       <div class="btn-wrapper" v-if="btnList.includes('copyTemplate')">
         <el-button type="text" size="mini" @click="copyPage">复制</el-button>
-      </div>
+      </div> -->
       <div class="btn-wrapper" v-if="showMoreBtn">
         <el-dropdown @command="command" placement="top-start">
           <el-button type="text" size="mini">更多 <i class="el-icon-more-outline"></i></el-button>
@@ -92,42 +92,48 @@
 				loading: false,
 				defaultCoverImage: require('@/common/images/quark--pagecover-image.png'),
 				operationDataList: [{
-					title: '发布',
-					eventType: 'publish',
-					extraClassName: '',
-					iconClass: ''
-				}, {
-					title: '发布模板市场',
-					eventType: 'publishTemplate',
-					extraClassName: '',
-					iconClass: ''
-				}, {
-					title: '复制链接',
-					eventType: 'copyUrl',
-					iconClass: ''
-				}, {
-					title: '设为我的模板',
-					eventType: 'setTemplate',
-					iconClass: ''
-				}, {
-					title: '页面数据',
-					eventType: 'viewPageData',
-					iconClass: ''
-				}, {
-					title: '协作设置',
-					eventType: 'cooperation',
-					iconClass: ''
-				}, {
 					title: '删除',
 					eventType: 'delete',
 					extraClassName: 'error',
 					iconClass: ''
-				}, {
-					title: '退出协作',
-					eventType: 'unCooperation',
-					extraClassName: 'error',
-					iconClass: ''
 				}]
+				// operationDataList: [{
+				// 	title: '发布',
+				// 	eventType: 'publish',
+				// 	extraClassName: '',
+				// 	iconClass: ''
+				// }, {
+				// 	title: '发布模板市场',
+				// 	eventType: 'publishTemplate',
+				// 	extraClassName: '',
+				// 	iconClass: ''
+				// }, {
+				// 	title: '复制链接',
+				// 	eventType: 'copyUrl',
+				// 	iconClass: ''
+				// }, {
+				// 	title: '设为我的模板',
+				// 	eventType: 'setTemplate',
+				// 	iconClass: ''
+				// }, {
+				// 	title: '页面数据',
+				// 	eventType: 'viewPageData',
+				// 	iconClass: ''
+				// }, {
+				// 	title: '协作设置',
+				// 	eventType: 'cooperation',
+				// 	iconClass: ''
+				// }, {
+				// 	title: '删除',
+				// 	eventType: 'delete',
+				// 	extraClassName: 'error',
+				// 	iconClass: ''
+				// }, {
+				// 	title: '退出协作',
+				// 	eventType: 'unCooperation',
+				// 	extraClassName: 'error',
+				// 	iconClass: ''
+				// }]
 			}
 		},
 		methods: {

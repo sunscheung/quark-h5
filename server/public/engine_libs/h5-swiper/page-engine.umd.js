@@ -213,6 +213,13 @@ module.exports = function (S, index, unicode) {
 
 /***/ }),
 
+/***/ "05c6":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "0bfb":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -684,13 +691,6 @@ var $exports = module.exports = function (name) {
 
 $exports.store = store;
 
-
-/***/ }),
-
-/***/ "2c06":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/play.e6d237c7.svg";
 
 /***/ }),
 
@@ -18025,13 +18025,6 @@ module.exports = function (bitmap, value) {
 
 /***/ }),
 
-/***/ "47bd":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "4a59":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18072,17 +18065,6 @@ var defined = __webpack_require__("be13");
 module.exports = function (it) {
   return Object(defined(it));
 };
-
-
-/***/ }),
-
-/***/ "51e5":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_node_modules_css_loader_index_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_690c1eba_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("47bd");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_node_modules_css_loader_index_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_690c1eba_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_node_modules_css_loader_index_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_690c1eba_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
 
 
 /***/ }),
@@ -19112,14 +19094,17 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 /***/ "96cf":
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
+/* WEBPACK VAR INJECTION */(function(global) {/**
+ * Copyright (c) 2014, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * https://raw.github.com/facebook/regenerator/master/LICENSE file. An
+ * additional grant of patent rights can be found in the PATENTS file in
+ * the same directory.
  */
 
-var runtime = (function (exports) {
+!(function(global) {
   "use strict";
 
   var Op = Object.prototype;
@@ -19130,23 +19115,22 @@ var runtime = (function (exports) {
   var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
   var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
 
-  function define(obj, key, value) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-    return obj[key];
+  var inModule = typeof module === "object";
+  var runtime = global.regeneratorRuntime;
+  if (runtime) {
+    if (inModule) {
+      // If regeneratorRuntime is defined globally and we're in a module,
+      // make the exports object identical to regeneratorRuntime.
+      module.exports = runtime;
+    }
+    // Don't bother evaluating the rest of this file if the runtime was
+    // already defined globally.
+    return;
   }
-  try {
-    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
-    define({}, "");
-  } catch (err) {
-    define = function(obj, key, value) {
-      return obj[key] = value;
-    };
-  }
+
+  // Define the runtime globally (as expected by generated code) as either
+  // module.exports (if we're in a module) or a new, empty object.
+  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
 
   function wrap(innerFn, outerFn, self, tryLocsList) {
     // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
@@ -19160,7 +19144,7 @@ var runtime = (function (exports) {
 
     return generator;
   }
-  exports.wrap = wrap;
+  runtime.wrap = wrap;
 
   // Try/catch helper to minimize deoptimizations. Returns a completion
   // record like context.tryEntries[i].completion. This interface could
@@ -19218,23 +19202,20 @@ var runtime = (function (exports) {
     Generator.prototype = Object.create(IteratorPrototype);
   GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
   GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunction.displayName = define(
-    GeneratorFunctionPrototype,
-    toStringTagSymbol,
-    "GeneratorFunction"
-  );
+  GeneratorFunctionPrototype[toStringTagSymbol] =
+    GeneratorFunction.displayName = "GeneratorFunction";
 
   // Helper for defining the .next, .throw, and .return methods of the
   // Iterator interface in terms of a single ._invoke method.
   function defineIteratorMethods(prototype) {
     ["next", "throw", "return"].forEach(function(method) {
-      define(prototype, method, function(arg) {
+      prototype[method] = function(arg) {
         return this._invoke(method, arg);
-      });
+      };
     });
   }
 
-  exports.isGeneratorFunction = function(genFun) {
+  runtime.isGeneratorFunction = function(genFun) {
     var ctor = typeof genFun === "function" && genFun.constructor;
     return ctor
       ? ctor === GeneratorFunction ||
@@ -19244,12 +19225,14 @@ var runtime = (function (exports) {
       : false;
   };
 
-  exports.mark = function(genFun) {
+  runtime.mark = function(genFun) {
     if (Object.setPrototypeOf) {
       Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
     } else {
       genFun.__proto__ = GeneratorFunctionPrototype;
-      define(genFun, toStringTagSymbol, "GeneratorFunction");
+      if (!(toStringTagSymbol in genFun)) {
+        genFun[toStringTagSymbol] = "GeneratorFunction";
+      }
     }
     genFun.prototype = Object.create(Gp);
     return genFun;
@@ -19259,11 +19242,11 @@ var runtime = (function (exports) {
   // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
   // `hasOwn.call(value, "__await")` to determine if the yielded value is
   // meant to be awaited.
-  exports.awrap = function(arg) {
+  runtime.awrap = function(arg) {
     return { __await: arg };
   };
 
-  function AsyncIterator(generator, PromiseImpl) {
+  function AsyncIterator(generator) {
     function invoke(method, arg, resolve, reject) {
       var record = tryCatch(generator[method], generator, arg);
       if (record.type === "throw") {
@@ -19274,32 +19257,44 @@ var runtime = (function (exports) {
         if (value &&
             typeof value === "object" &&
             hasOwn.call(value, "__await")) {
-          return PromiseImpl.resolve(value.__await).then(function(value) {
+          return Promise.resolve(value.__await).then(function(value) {
             invoke("next", value, resolve, reject);
           }, function(err) {
             invoke("throw", err, resolve, reject);
           });
         }
 
-        return PromiseImpl.resolve(value).then(function(unwrapped) {
+        return Promise.resolve(value).then(function(unwrapped) {
           // When a yielded Promise is resolved, its final value becomes
           // the .value of the Promise<{value,done}> result for the
-          // current iteration.
+          // current iteration. If the Promise is rejected, however, the
+          // result for this iteration will be rejected with the same
+          // reason. Note that rejections of yielded Promises are not
+          // thrown back into the generator function, as is the case
+          // when an awaited Promise is rejected. This difference in
+          // behavior between yield and await is important, because it
+          // allows the consumer to decide what to do with the yielded
+          // rejection (swallow it and continue, manually .throw it back
+          // into the generator, abandon iteration, whatever). With
+          // await, by contrast, there is no opportunity to examine the
+          // rejection reason outside the generator function, so the
+          // only option is to throw it from the await expression, and
+          // let the generator function handle the exception.
           result.value = unwrapped;
           resolve(result);
-        }, function(error) {
-          // If a rejected Promise was yielded, throw the rejection back
-          // into the async generator function so it can be handled there.
-          return invoke("throw", error, resolve, reject);
-        });
+        }, reject);
       }
+    }
+
+    if (typeof global.process === "object" && global.process.domain) {
+      invoke = global.process.domain.bind(invoke);
     }
 
     var previousPromise;
 
     function enqueue(method, arg) {
       function callInvokeWithMethodAndArg() {
-        return new PromiseImpl(function(resolve, reject) {
+        return new Promise(function(resolve, reject) {
           invoke(method, arg, resolve, reject);
         });
       }
@@ -19334,20 +19329,17 @@ var runtime = (function (exports) {
   AsyncIterator.prototype[asyncIteratorSymbol] = function () {
     return this;
   };
-  exports.AsyncIterator = AsyncIterator;
+  runtime.AsyncIterator = AsyncIterator;
 
   // Note that simple async functions are implemented on top of
   // AsyncIterator objects; they just return a Promise for the value of
   // the final result produced by the iterator.
-  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
-    if (PromiseImpl === void 0) PromiseImpl = Promise;
-
+  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
     var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList),
-      PromiseImpl
+      wrap(innerFn, outerFn, self, tryLocsList)
     );
 
-    return exports.isGeneratorFunction(outerFn)
+    return runtime.isGeneratorFunction(outerFn)
       ? iter // If outerFn is a generator, return the full iterator.
       : iter.next().then(function(result) {
           return result.done ? result.value : iter.next();
@@ -19444,8 +19436,7 @@ var runtime = (function (exports) {
       context.delegate = null;
 
       if (context.method === "throw") {
-        // Note: ["return"] must be used for ES3 parsing compatibility.
-        if (delegate.iterator["return"]) {
+        if (delegate.iterator.return) {
           // If the delegate iterator has a return method, give it a
           // chance to clean up.
           context.method = "return";
@@ -19519,7 +19510,7 @@ var runtime = (function (exports) {
   // unified ._invoke helper method.
   defineIteratorMethods(Gp);
 
-  define(Gp, toStringTagSymbol, "Generator");
+  Gp[toStringTagSymbol] = "Generator";
 
   // A Generator should always return itself as the iterator object when the
   // @@iterator function is called on it. Some browsers' implementations of the
@@ -19565,7 +19556,7 @@ var runtime = (function (exports) {
     this.reset(true);
   }
 
-  exports.keys = function(object) {
+  runtime.keys = function(object) {
     var keys = [];
     for (var key in object) {
       keys.push(key);
@@ -19626,7 +19617,7 @@ var runtime = (function (exports) {
     // Return an iterator with no values.
     return { next: doneResult };
   }
-  exports.values = values;
+  runtime.values = values;
 
   function doneResult() {
     return { value: undefined, done: true };
@@ -19831,36 +19822,16 @@ var runtime = (function (exports) {
       return ContinueSentinel;
     }
   };
+})(
+  // Among the various tricks for obtaining a reference to the global
+  // object, this seems to be the most reliable technique that does not
+  // use indirect eval (which violates Content Security Policy).
+  typeof global === "object" ? global :
+  typeof window === "object" ? window :
+  typeof self === "object" ? self : this
+);
 
-  // Regardless of whether this script is executing as a CommonJS module
-  // or not, return the runtime object so that we can declare the variable
-  // regeneratorRuntime in the outer scope, which allows this module to be
-  // injected easily by `bin/regenerator --include-runtime script.js`.
-  return exports;
-
-}(
-  // If this script is executing as a CommonJS module, use module.exports
-  // as the regeneratorRuntime namespace. Otherwise create a new empty
-  // object. Either way, the resulting object will be used to initialize
-  // the regeneratorRuntime variable at the top of this file.
-   true ? module.exports : undefined
-));
-
-try {
-  regeneratorRuntime = runtime;
-} catch (accidentalStrictMode) {
-  // This module should not be running in strict mode, so the above
-  // assignment should always work unless something is misconfigured. Just
-  // in case runtime.js accidentally runs in strict mode, we can escape
-  // strict mode using a global Function call. This could conceivably fail
-  // if a Content Security Policy forbids using Function, but in that case
-  // the proper solution is to fix the accidental strict mode problem. If
-  // you've misconfigured your bundler to force strict mode and applied a
-  // CSP to forbid Function, and you're not willing to fix either of those
-  // problems, please detail your unique predicament in a GitHub issue.
-  Function("r", "regeneratorRuntime = r")(runtime);
-}
-
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__("c8ba")))
 
 /***/ }),
 
@@ -19878,13 +19849,6 @@ module.exports = Reflect && Reflect.ownKeys || function ownKeys(it) {
   return getSymbols ? keys.concat(getSymbols(it)) : keys;
 };
 
-
-/***/ }),
-
-/***/ "995b":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -19963,6 +19927,17 @@ module.exports = function (it) {
 module.exports = !__webpack_require__("79e5")(function () {
   return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 });
+
+
+/***/ }),
+
+/***/ "a0c8":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_node_modules_css_loader_index_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_7009a58e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("05c6");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_node_modules_css_loader_index_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_7009a58e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_node_modules_css_loader_index_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_7009a58e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
 
 
 /***/ }),
@@ -20597,17 +20572,6 @@ module.exports = (
 
 /***/ }),
 
-/***/ "e11e9":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_a156376c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("995b");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_a156376c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_a156376c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
-
-
-/***/ }),
-
 /***/ "e298":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20650,7 +20614,7 @@ module.exports = function (object, index, value) {
 /***/ "f355":
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"port\":\"4000\",\"adminAccount\":\"admin\",\"db\":{\"servername\":\"localhost\",\"DATABASE\":\"quark\",\"port\":27017,\"user\":\"admin\",\"pass\":\"admin888\",\"authSource\":\"\"},\"baseURL\":\"\"}");
+module.exports = JSON.parse("{\"port\":\"40877\",\"adminAccount\":\"admin\",\"db\":{\"servername\":\"localhost\",\"DATABASE\":\"quark\",\"port\":27017,\"user\":\"\",\"pass\":\"\",\"authSource\":\"\"},\"baseURL\":\"\"}");
 
 /***/ }),
 
@@ -20767,12 +20731,12 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
 var es6_function_name = __webpack_require__("7f7f");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e80393c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./engine-template/engine-h5-swiper/src/index.vue?vue&type=template&id=690c1eba&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6eb23328-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./engine-template/engine-h5-swiper/src/index.vue?vue&type=template&id=7009a58e&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"engine-template-wrapper hidden"},[_c('div',{staticClass:"swiper-container"},[_c('div',{staticClass:"swiper-wrapper"},_vm._l((_vm.pageData.pages),function(page,i){return _c('div',{key:i,staticClass:"swiper-slide flat relative hidden",style:(_vm.getCommonStyle(page.commonStyle))},[_c('div',{staticClass:"quark-page-wrapper",style:(_vm.getCommonStyle(Object.assign({}, page.commonStyle, {top: _vm.pageTop, height: _vm.pageData.height, width: _vm.pageData.width, position: 'relative'}), _vm.scalingRatio))},_vm._l((page.elements),function(item,index){return _c('componentsTemplate',{key:index,style:(_vm.getCommonStyle(item.commonStyle, _vm.scalingRatio)),attrs:{"loaded":item._loaded,"element":item},on:{"handleElementClick":_vm.handleElementClick}})}),1)])}),0),_c('div',{staticClass:"swiper-pagination"})])])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./engine-template/engine-h5-swiper/src/index.vue?vue&type=template&id=690c1eba&scoped=true&
+// CONCATENATED MODULE: ./engine-template/engine-h5-swiper/src/index.vue?vue&type=template&id=7009a58e&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -20782,6 +20746,9 @@ var es7_array_includes = __webpack_require__("6762");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.get-own-property-descriptors.js
 var es7_object_get_own_property_descriptors = __webpack_require__("8e6e");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
+var es6_array_iterator = __webpack_require__("cadf");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.keys.js
 var es6_object_keys = __webpack_require__("456d");
@@ -20824,6 +20791,8 @@ function _typeof(obj) {
   return _typeof(obj);
 }
 // CONCATENATED MODULE: ./common/uitls.js
+
+
 
 
 
@@ -20896,15 +20865,10 @@ var uitls_deepClone = function deepClone(obj) {
 // EXTERNAL MODULE: ./node_modules/lodash/lodash.js
 var lodash = __webpack_require__("2ef0");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
-var es6_array_iterator = __webpack_require__("cadf");
-
 // EXTERNAL MODULE: ./config.json
 var config_0 = __webpack_require__("f355");
 
 // CONCATENATED MODULE: ./client/config/index.js
-
-
 
 
 
@@ -20948,8 +20912,8 @@ function _objectSpread(target) {
 }
 /*
  * @Author: 张旭
- * @Date: 2020-12-14 17:30:59
- * @LastEditTime: 2021-01-15 16:08:36
+ * @Date: 2021-01-19 17:28:25
+ * @LastEditTime: 2021-02-02 15:48:30
  */
 
 /**
@@ -20960,7 +20924,7 @@ function _objectSpread(target) {
 
 var configDict = {
   development: {
-    baseURL: 'http://localhost:4000'
+    baseURL: 'http://localhost:40877'
   },
   production: {
     baseURL: config_0.baseURL
@@ -20997,6 +20961,8 @@ var configObj = _objectSpread(_objectSpread({
 
 /* harmony default export */ var client_config = (configObj);
 // CONCATENATED MODULE: ./client/pages/editor/DataModel.js
+
+
 
 
 
@@ -21107,7 +21073,7 @@ var pageConfig = {
 var projectConfig = {
   name: '',
   title: '未命名场景',
-  description: '我用夸克可视化编辑器做了一个超酷炫的H5，快来看看吧。',
+  description: '我用可视化编辑器做了一个超酷炫的H5，快来看看吧。',
   coverImage: '',
   auther: '',
   script: '',
@@ -21221,7 +21187,7 @@ var getCommonStyle = function getCommonStyle(styleObj) {
   copyElement: DataModel_copyElement,
   getCommonStyle: getCommonStyle
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e80393c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./engine-template/engine-h5-swiper/src/components-template.vue?vue&type=template&id=5af2bc05&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6eb23328-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./engine-template/engine-h5-swiper/src/components-template.vue?vue&type=template&id=5af2bc05&
 var components_templatevue_type_template_id_5af2bc05_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"quark-element-wrapper",on:{"click":_vm.handleClick}},[_c(_vm.element.elName,_vm._b({tag:"component",staticClass:"quark-element ani"},'component',_vm.element.propsValue,false))],1)}
 var components_templatevue_type_template_id_5af2bc05_staticRenderFns = []
 
@@ -21267,7 +21233,7 @@ function _asyncToGenerator(fn) {
     });
   };
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e80393c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/text/src/index.vue?vue&type=template&id=7681d086&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6eb23328-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/text/src/index.vue?vue&type=template&id=7681d086&scoped=true&
 var srcvue_type_template_id_7681d086_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"qk-text"},[_vm._v("\n  "+_vm._s(_vm.text)+"\n")])}
 var srcvue_type_template_id_7681d086_scoped_true_staticRenderFns = []
 
@@ -21432,7 +21398,7 @@ src.install = function (Vue) {
 };
 
 /* harmony default export */ var plugins_text = (src);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e80393c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/image/src/index.vue?vue&type=template&id=4a5981e8&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6eb23328-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/image/src/index.vue?vue&type=template&id=4a5981e8&scoped=true&
 var srcvue_type_template_id_4a5981e8_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"qk-image"},[_c('img',{attrs:{"src":_vm.imageSrc,"alt":""}})])}
 var srcvue_type_template_id_4a5981e8_scoped_true_staticRenderFns = []
 
@@ -21494,7 +21460,7 @@ image_src.install = function (Vue) {
 };
 
 /* harmony default export */ var plugins_image = (image_src);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e80393c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/image-carousel/src/index.vue?vue&type=template&id=1b125d5a&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6eb23328-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/image-carousel/src/index.vue?vue&type=template&id=1b125d5a&scoped=true&
 var srcvue_type_template_id_1b125d5a_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"qk-image-carsousel"},[(_vm.imageSrcList.length > 0)?_c('Swiper',{staticClass:"image-carsousel-swiper",attrs:{"autoPlay":true,"showIndicator":true,"interval":_vm.interval,"duration":"500"}},_vm._l((_vm.imageSrcList),function(item,index){return _c('Slide',{key:index,staticClass:"image-carsousel-slide"},[_c('img',{staticClass:"image-carsousel-image",attrs:{"src":item,"alt":""}})])}),1):_vm._e()],1)}
 var srcvue_type_template_id_1b125d5a_scoped_true_staticRenderFns = []
 
@@ -21504,7 +21470,7 @@ var srcvue_type_template_id_1b125d5a_scoped_true_staticRenderFns = []
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("c5f6");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e80393c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-swiper-component/swiper.vue?vue&type=template&id=24765e69&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6eb23328-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-swiper-component/swiper.vue?vue&type=template&id=24765e69&
 var swipervue_type_template_id_24765e69_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',{staticClass:"wh_content",on:{"touchmove":_vm.fn}},[_c('div',{staticClass:"wh_swiper",class:_vm.className,on:{"touchstart":_vm.s,"touchmove":_vm.m,"touchend":_vm.e}},[_vm._t("default")],2),(_vm.showIndicator)?_c('div',{staticClass:"wh_indicator"},_vm._l((_vm.slidesLength),function(tag,$index){return _c('div',{staticClass:"wh_indicator_item",class:{ wh_show_bgcolor: _vm.index-1==$index }})}),0):_vm._e()])}
 var swipervue_type_template_id_24765e69_staticRenderFns = []
 
@@ -21709,7 +21675,7 @@ var swiper_component = normalizeComponent(
 )
 
 /* harmony default export */ var swiper = (swiper_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e80393c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-swiper-component/slide.vue?vue&type=template&id=946ebcde&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6eb23328-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-swiper-component/slide.vue?vue&type=template&id=946ebcde&
 var slidevue_type_template_id_946ebcde_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"wh_slide",on:{"click":_vm.clickSlide}},[_vm._t("default")],2)}
 var slidevue_type_template_id_946ebcde_staticRenderFns = []
 
@@ -21855,7 +21821,7 @@ image_carousel_src.install = function (Vue) {
 };
 
 /* harmony default export */ var image_carousel = (image_carousel_src);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e80393c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/rectangle-border/src/index.vue?vue&type=template&id=16b68a19&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6eb23328-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/rectangle-border/src/index.vue?vue&type=template&id=16b68a19&scoped=true&
 var srcvue_type_template_id_16b68a19_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"qk-rectangle-border"})}
 var srcvue_type_template_id_16b68a19_scoped_true_staticRenderFns = []
 
@@ -21907,69 +21873,7 @@ rectangle_border_src.install = function (Vue) {
 };
 
 /* harmony default export */ var rectangle_border = (rectangle_border_src);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e80393c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/iframe/src/index.vue?vue&type=template&id=edab66b4&scoped=true&
-var srcvue_type_template_id_edab66b4_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"qk-iframe"},[_c('iframe',{staticStyle:{"background-color":"transparent","width":"100%","min-height":"100%"},attrs:{"src":_vm.url,"frameborder":"0"}})])}
-var srcvue_type_template_id_edab66b4_scoped_true_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./client/plugins/iframe/src/index.vue?vue&type=template&id=edab66b4&scoped=true&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/iframe/src/index.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ var iframe_srcvue_type_script_lang_js_ = ({
-  name: 'QkIframe',
-  // 这个名字很重要，它就是未来的标签名
-  props: {
-    url: {
-      type: String,
-      default: "http://m.baidu.com/"
-    }
-  },
-  data: function data() {
-    return {};
-  },
-  methods: {}
-});
-// CONCATENATED MODULE: ./client/plugins/iframe/src/index.vue?vue&type=script&lang=js&
- /* harmony default export */ var plugins_iframe_srcvue_type_script_lang_js_ = (iframe_srcvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./client/plugins/iframe/src/index.vue
-
-
-
-
-
-/* normalize component */
-
-var iframe_src_component = normalizeComponent(
-  plugins_iframe_srcvue_type_script_lang_js_,
-  srcvue_type_template_id_edab66b4_scoped_true_render,
-  srcvue_type_template_id_edab66b4_scoped_true_staticRenderFns,
-  false,
-  null,
-  "edab66b4",
-  null
-  
-)
-
-/* harmony default export */ var iframe_src = (iframe_src_component.exports);
-// CONCATENATED MODULE: ./client/plugins/iframe/index.js
-
- // 为组件提供 install 方法，供组件对外按需引入
-
-
-
-iframe_src.install = function (Vue) {
-  Vue.component(iframe_src.name, iframe_src);
-};
-
-/* harmony default export */ var iframe = (iframe_src);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e80393c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/button/src/index.vue?vue&type=template&id=5f7afaa9&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6eb23328-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/button/src/index.vue?vue&type=template&id=5f7afaa9&scoped=true&
 var srcvue_type_template_id_5f7afaa9_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"qk-button"},[_vm._v("\n  "+_vm._s(_vm.text)+"\n")])}
 var srcvue_type_template_id_5f7afaa9_scoped_true_staticRenderFns = []
 
@@ -22027,7 +21931,7 @@ button_src.install = function (Vue) {
 };
 
 /* harmony default export */ var plugins_button = (button_src);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e80393c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/bg-music/src/index.vue?vue&type=template&id=41b94bc6&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6eb23328-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/bg-music/src/index.vue?vue&type=template&id=41b94bc6&scoped=true&
 var srcvue_type_template_id_41b94bc6_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"qk-bg-music",class:{playing: _vm.playing},on:{"click":_vm.handleMusicPlay}},[(_vm.musicSrc)?_c('div',{staticClass:"video-play-audio"},[_c('audio',{ref:"audioPlayer",staticStyle:{"opacity":"0"},attrs:{"id":"video-play-audio","src":_vm.musicSrc,"controls":"","autoplay":"","loop":"","preload":""}})]):_vm._e(),_c('img',{staticClass:"yinyue-img",attrs:{"src":_vm.imageSrc,"alt":"bg"}})])}
 var srcvue_type_template_id_41b94bc6_scoped_true_staticRenderFns = []
 
@@ -22149,145 +22053,6 @@ bg_music_src.install = function (Vue) {
 };
 
 /* harmony default export */ var bg_music = (bg_music_src);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e80393c6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/video/src/index.vue?vue&type=template&id=a156376c&scoped=true&
-var srcvue_type_template_id_a156376c_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"lbc-video",staticStyle:{}},[(_vm.useIframe)?_c('div',{ref:"iframeWrapper"},[_c('img',{attrs:{"src":_vm.playIcon,"width":"100%","height":"100%"}})]):_c('video',{ref:"videoTag",attrs:{"playsinline":"true","webkit-playsinline":"","width":"100%","height":"100%","poster":_vm.playIcon,"controls":""}},[_c('source',{attrs:{"type":"video/mp4","src":"src"}})])])}
-var srcvue_type_template_id_a156376c_scoped_true_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./client/plugins/video/src/index.vue?vue&type=template&id=a156376c&scoped=true&
-
-// EXTERNAL MODULE: ./client/plugins/video/src/play.svg
-var play = __webpack_require__("2c06");
-var play_default = /*#__PURE__*/__webpack_require__.n(play);
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./client/plugins/video/src/index.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ var video_srcvue_type_script_lang_js_ = ({
-  name: 'QkVideo',
-  // 这个名字很重要，它就是未来的标签名<qk-video></qk-video>
-  props: {
-    src: {
-      type: String,
-      default: "http://localhost:1337/uploads/419a4b0c60f9488c9d44c398dc987471.mp4",
-      editor: {
-        type: 'lbs-video-gallery',
-        label: '视频2',
-        props: {
-          type: 'textarea'
-        }
-      }
-    },
-    disabled: {
-      label: 'disabled',
-      type: Boolean,
-      default: false
-    },
-    useIframe: {
-      label: '使用iframe',
-      type: Boolean,
-      default: false
-    },
-    iframeSrc: {
-      default: '',
-      label: 'iframe 地址',
-      props: {
-        type: 'textarea',
-        placeholder: '只有使用iframe打开的时候，这个才有效'
-      },
-      extra: function extra() {
-        return '「使用iframe」打开的时候，这个才有效；上传视频请忽略该配置';
-      }
-    }
-  },
-  watch: {
-    src: function src() {
-      this.appendIframe();
-    },
-    disabled: function disabled() {
-      this.appendIframe();
-    },
-    useIframe: function useIframe() {
-      this.appendIframe();
-    },
-    iframeSrc: function iframeSrc() {
-      this.appendIframe();
-    }
-  },
-  mounted: function mounted() {
-    this.appendIframe();
-  },
-  methods: {
-    appendIframe: function appendIframe() {
-      if (this.useIframe && this.iframeSrc) {
-        this.$refs.iframeWrapper && (this.$refs.iframeWrapper.innerHTML = this.iframeSrc);
-      }
-    }
-  },
-  data: function data() {
-    return {
-      playIcon: play_default.a
-    };
-  }
-});
-// CONCATENATED MODULE: ./client/plugins/video/src/index.vue?vue&type=script&lang=js&
- /* harmony default export */ var plugins_video_srcvue_type_script_lang_js_ = (video_srcvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./client/plugins/video/src/index.vue?vue&type=style&index=0&id=a156376c&lang=scss&scoped=true&
-var srcvue_type_style_index_0_id_a156376c_lang_scss_scoped_true_ = __webpack_require__("e11e9");
-
-// CONCATENATED MODULE: ./client/plugins/video/src/index.vue
-
-
-
-
-
-
-/* normalize component */
-
-var video_src_component = normalizeComponent(
-  plugins_video_srcvue_type_script_lang_js_,
-  srcvue_type_template_id_a156376c_scoped_true_render,
-  srcvue_type_template_id_a156376c_scoped_true_staticRenderFns,
-  false,
-  null,
-  "a156376c",
-  null
-  
-)
-
-/* harmony default export */ var video_src = (video_src_component.exports);
-// CONCATENATED MODULE: ./client/plugins/video/index.js
-
-
-/*
- * @Author: 张旭
- * @Date: 2021-01-14 16:06:22
- * @LastEditTime: 2021-01-14 16:06:38
- */
-// 为组件提供 install 方法，供组件对外按需引入
-
-
-
-video_src.install = function (Vue) {
-  Vue.component(video_src.name, video_src);
-};
-
-/* harmony default export */ var video = (video_src);
 // CONCATENATED MODULE: ./client/plugins/index.js
 
 
@@ -22296,7 +22061,7 @@ video_src.install = function (Vue) {
 /*
  * @Author: 张旭
  * @Date: 2020-12-14 17:30:59
- * @LastEditTime: 2021-01-14 16:32:58
+ * @LastEditTime: 2021-01-19 16:16:06
  */
 
 /**
@@ -22306,13 +22071,15 @@ video_src.install = function (Vue) {
 
 
 
+ // import Iframe from './iframe'
 
 
+ // import video from "./video";
+// 所有组件列表
 
-
- // 所有组件列表
-
-var components = [plugins_text, plugins_image, image_carousel, rectangle_border, iframe, plugins_button, bg_music, video]; // 定义 install 方法，接收 Vue 作为参数
+var components = [plugins_text, plugins_image, image_carousel, rectangle_border, // Iframe,
+plugins_button, bg_music // video
+]; // 定义 install 方法，接收 Vue 作为参数
 
 var plugins_install = function install(Vue) {
   // 判断是否安装，安装过就不继续往下执行
@@ -22338,7 +22105,12 @@ components.forEach(function (item) {
   install: plugins_install // 所有组件，必须具有 install，才能使用 Vue.use()
 
 });
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
+var es6_promise = __webpack_require__("551c");
+
 // CONCATENATED MODULE: ./client/common/js/runAnimations.js
+
+
 
 
 /**
@@ -22420,9 +22192,6 @@ function _runAnimation() {
   }));
   return _runAnimation.apply(this, arguments);
 }
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
-var es6_promise = __webpack_require__("551c");
-
 // CONCATENATED MODULE: ./client/mixins/elementEvents.js
 
 
@@ -22682,8 +22451,8 @@ var components_template_component = normalizeComponent(
 });
 // CONCATENATED MODULE: ./engine-template/engine-h5-swiper/src/index.vue?vue&type=script&lang=js&
  /* harmony default export */ var engine_template_engine_h5_swiper_srcvue_type_script_lang_js_ = (engine_h5_swiper_srcvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./engine-template/engine-h5-swiper/src/index.vue?vue&type=style&index=0&id=690c1eba&scoped=true&lang=css&
-var srcvue_type_style_index_0_id_690c1eba_scoped_true_lang_css_ = __webpack_require__("51e5");
+// EXTERNAL MODULE: ./engine-template/engine-h5-swiper/src/index.vue?vue&type=style&index=0&id=7009a58e&scoped=true&lang=css&
+var srcvue_type_style_index_0_id_7009a58e_scoped_true_lang_css_ = __webpack_require__("a0c8");
 
 // CONCATENATED MODULE: ./engine-template/engine-h5-swiper/src/index.vue
 
@@ -22700,7 +22469,7 @@ var engine_h5_swiper_src_component = normalizeComponent(
   staticRenderFns,
   false,
   null,
-  "690c1eba",
+  "7009a58e",
   null
   
 )

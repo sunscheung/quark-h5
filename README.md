@@ -392,7 +392,7 @@ location /engine_libs/ {
 } 
 location /quark {
   proxy_read_timeout 150;
-  proxy_pass http://127.0.0.1:4000/quark;
+  proxy_pass http://127.0.0.1:40877/quark;
 }
 ```
 ```js
@@ -405,7 +405,7 @@ npm install pm2 -g
 npm run start // pm2 restart 0
 ```
 
-启动完访问http://localhost:4000 就可以看到工程页面了
+启动完访问http://localhost:40877 就可以看到工程页面了
 
 ## 交流群(948547409)
 
