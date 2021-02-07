@@ -174,9 +174,9 @@
         data.isPublish = true;
 				this.$API.updatePage({pageData: data}).then(() => {
 					this.$message.success('已成功保存并发布!');
+					parent.postMessage({id: data._id,title: data.title, coverImage: data.coverImage, flag: "qk"},"*");
 					this.showPreview = false
-          this.$router.push({name: 'pageList'})
-				})
+				}) 
 			},
 			async showPreviewFn() {
 				// await this.screenshots()
